@@ -10,7 +10,8 @@ export default {
   name: 'NumberElement',
   props: [
     'schema',
-    'value'
+    'value',
+    'error'
   ]
 }
 </script>

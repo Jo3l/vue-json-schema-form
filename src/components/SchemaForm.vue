@@ -73,8 +73,8 @@ export default {
         if (error.keyword === 'required') {
           const path = error.dataPath.length === 0 ? `/properties/${error.params.missingProperty}` : error.schemaPath.substring(1, error.schemaPath.length - 8) + `properties/${error.params.missingProperty}`
           const property = JSONPointer.get(this.schema, path)
-          console.log(JSONPointer.get(this.schema, path), path);
-          errors[error.params.missingProperty] = { message: property.title + ' is required'}
+          console.log('ye',property)
+          errors[error.params.missingProperty] = { message: 'El campo ' + property.title + ' es necesario'}
         } else if (error.keyword === 'format') {
           const path = error.schemaPath.substring(1, error.schemaPath.length - 7)
           const property = JSONPointer.get(this.schema, path)
@@ -84,10 +84,9 @@ export default {
           const property = JSONPointer.get(this.schema, path)
           return `${property.title} is not in the correct format. Eg: ${property.example}`
         } else {
-          return { property: '', message: property.title + ' is required'}
+          return { property: '', message: ''}
         }
       })
-      console.log(errors)
       this.ajvErrors = errors;
     },
     updateValue (value, child) {

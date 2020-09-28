@@ -1,7 +1,5 @@
 <template>
-  <div>
     <component :is="type" :schema='schema' :value='value' :error="error" @input="$emit('input', $event)"></component>
-  </div>
 </template>
 
 <script>

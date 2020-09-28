@@ -108,7 +108,7 @@ export default {
                 "example": "Postal code"
               }
             },
-            required:["postalCode"]
+            "required":["postalCode"]
           },
           "age": {
             "title": "Age",
@@ -118,7 +118,7 @@ export default {
           }
         },
         "required": [
-          "firstName", "lastName", "address"
+          "firstName", "lastName", "address/postalCode"
         ]
       },
       schemaIsValid: true,
