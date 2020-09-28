@@ -9,7 +9,7 @@
         <button type="button" class="button is-danger" v-if="items.length > 0" @click="items.splice(index, 1)" :key="`remove-${index}`">Quitar</button>
       </div>
     </div>
-    <button type="button" class="button" @click="addItem()">Añadir</button>
+    <b-field><button type="button" class="button" @click="addItem()">Añadir</button></b-field>
   </fieldset>
 </template>
 
