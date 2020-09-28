@@ -1,7 +1,7 @@
 <template>
-  <fieldset>
+  <fieldset :class="schema.class?schema.class:''">
     <legend v-if="schema.title" class="is-size-4 has-text-weight-bold">{{ schema.title }}</legend>
-    <div v-for="(item, index) in items" :class="schema.class?schema.class:' columns'" :key="index">
+    <div v-for="(item, index) in items" class="columns" :key="index">
       <div class="column">
         <form-element :schema="schema.items" :value="item" :error="error" @input="updateValue($event, index)" :class="schema.class?schema.class:''"></form-element>
       </div>
