@@ -1,16 +1,16 @@
 <template>
-  <div :class="'fieldSet '+schema.class?schema.class:'field'">
+  <fieldset>
     <legend v-if="schema.title">{{ schema.title }}</legend>
     <div v-for="(item, index) in items" :class="schema.class?schema.class:' columns'" :key="index">
       <div class="column">
-        <form-element :schema="schema.items" :value="item" :error="error" @input="updateValue($event, index)"></form-element>
+        <form-element :schema="schema.items" :value="item" :error="error" @input="updateValue($event, index)" :class="schema.class?schema.class:''"></form-element>
       </div>
       <div class="column is-narrow">
         <button type="button" class="button is-danger" v-if="items.length > 0" @click="items.splice(index, 1)" :key="`remove-${index}`">X</button>
       </div>
     </div>
     <button type="button" class="button" @click="addItem()">+</button>
-  </div>
+  </fieldset>
 </template>
 
 <script>
@@ -44,11 +44,11 @@ export default {
 </script>
 
 <style scoped>
-.fieldSet {
+fieldSet {
   padding-left: 2em;
   border-left: 1px solid #0C2E69;
 }
-.fieldset > legend {
+fieldset > legend {
     font-weight: 600;
     font-size: 1.3em;
     padding-bottom: 1em;
