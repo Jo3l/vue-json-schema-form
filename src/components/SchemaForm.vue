@@ -1,19 +1,9 @@
 <template>
   <form @submit.prevent="submit">
-    <slot name="header" :error-messages="activeErrorMessages">
-      <b-notification
-        v-show="activeErrorMessages.length"
-        type="is-danger"
-        :closable="false"
-        id="error-messages">
-        <div v-for="(error, index) in activeErrorMessages" :key="index">
-          <div>{{ error }}</div>
-        </div>
-      </b-notification>
-    </slot>
     <template v-for="(property, key) in schema.properties">
       <slot :name="key" :item="{key: key, schema: property, value: items[key], update: updateValue}">
-        <component :is="element" :key="key" :schema="property" :value="items[key]" @input="updateValue($event, key)"></component>
+        <component :is="element" :key="key" :schema="property" :value="items[key]" :error="ajvErrors[key]?ajvErrors[key].message:''" @input="updateValue($event, key)">
+        </component>
       </slot>
     </template>
     <slot name="actions">
@@ -31,7 +21,7 @@ import FormElement from '@/components/elements/FormElement'
 import { scaffoldFromSchema, pruneEmptyMembers } from '@/utility/json-schema-helpers'
 
 let ajv = new Ajv({allErrors: true, jsonPointers: true, format: 'full'})
-
+// fer un array per a que quan fas blur del item 
 export default {
   name: 'SchemaForm',
   components: {
@@ -53,7 +43,7 @@ export default {
   data () {
     return {
       items: (this.value !== undefined) ? this.value : scaffoldFromSchema(this.schema),
-      activeErrorMessages: [],
+      ajvErrors: {}
     }
   },
   watch: {
@@ -65,7 +55,6 @@ export default {
   methods: {
     submit() {
       if (this.validate()) {
-        this.activeErrorMessages = []
         this.$emit('input', pruneEmptyMembers(this.items))
         this.$emit('submit')
       }
@@ -77,12 +66,15 @@ export default {
       // validate against schema
       return ajv.validate(this.schema, pruneEmptyMembers(this.items))
     },
-    buildErrors () {
-      this.activeErrorMessages = ajv.errors.map((error) => {
+    buildErrors() {
+      let errors = {};
+      console.log(ajv.errors)
+      ajv.errors.forEach((error) => {
         if (error.keyword === 'required') {
           const path = error.dataPath.length === 0 ? `/properties/${error.params.missingProperty}` : error.schemaPath.substring(1, error.schemaPath.length - 8) + `properties/${error.params.missingProperty}`
           const property = JSONPointer.get(this.schema, path)
-          return property.title + ' is required'
+          console.log(JSONPointer.get(this.schema, path), path);
+          errors[error.params.missingProperty] = { message: property.title + ' is required'}
         } else if (error.keyword === 'format') {
           const path = error.schemaPath.substring(1, error.schemaPath.length - 7)
           const property = JSONPointer.get(this.schema, path)
@@ -91,11 +83,21 @@ export default {
           const path = error.schemaPath.substring(1, error.schemaPath.length - 8)
           const property = JSONPointer.get(this.schema, path)
           return `${property.title} is not in the correct format. Eg: ${property.example}`
+        } else {
+          return { property: '', message: property.title + ' is required'}
         }
       })
+      console.log(errors)
+      this.ajvErrors = errors;
     },
     updateValue (value, child) {
-      this.items[child] = value
+      this.items[child] = value;
+      
+      if(!this.validate()){
+        this.buildErrors();
+      } else {
+        this.ajvErrors={};
+      }
     }
   }
 }

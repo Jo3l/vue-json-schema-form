@@ -2,7 +2,7 @@
   <fieldset class="field">
     <legend v-if="schema.title">{{ schema.title }}</legend>
     <div class="content" v-if="schema.description">{{ schema.description }}</div>
-    <form-element v-for="(child, key) in schema.properties" :schema="child" :value="internalValue[key]" :key="key" @input="updateValue($event, key)"></form-element>
+    <form-element v-for="(child, key) in schema.properties" :schema="child" :error="error" :value="internalValue[key]" :key="key" @input="updateValue($event, key)"></form-element>
   </fieldset>
 </template>
 
@@ -16,7 +16,8 @@ export default {
   },
   props: [
     'schema',
-    'value'
+    'value',
+    'error'
   ],
   data () {
     return {

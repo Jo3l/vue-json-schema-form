@@ -1,5 +1,7 @@
 <template>
-  <component :is="type" :schema='schema' :value='value' @input="$emit('input', $event)" />
+  <div>
+    <component :is="type" :schema='schema' :value='value' :error="error" @input="$emit('input', $event)"></component>
+  </div>
 </template>
 
 <script>
@@ -18,7 +20,8 @@ export default {
   name: 'FormElement',
   props: [
     'schema',
-    'value'
+    'value',
+    'error'
   ],
   computed: {
     type() {

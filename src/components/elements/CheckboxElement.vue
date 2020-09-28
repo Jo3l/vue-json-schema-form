@@ -1,6 +1,6 @@
 <template>
   <div class="field checkbox-field">
-    <b-checkbox :value="value" @input="$emit('input', $event)">
+    <b-checkbox :value="value" @input="$emit('input', $event)" :type="error?'is-danger':''">
       <span class="checkbox-title">{{ schema.title }}</span>
       <p class="help checkbox-desc" v-if="schema.description">{{ schema.description }}</p>
     </b-checkbox>
@@ -12,7 +12,8 @@ export default {
   name: 'CheckboxElement',
   props: [
     'schema',
-    'value'
+    'value',
+    'error'
   ]
 }
 </script>

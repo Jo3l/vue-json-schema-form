@@ -1,5 +1,5 @@
 <template>
-  <b-field :label="schema.title">
+  <b-field :label="schema.title" :type="error?'is-danger':''">
     <b-taginput
       :value="value"
       icon="account-multiple"
@@ -14,7 +14,8 @@ export default {
   name: 'TaginputElement',
   props: [
     'schema',
-    'value'
+    'value',
+    'error'
   ]
 }
 </script>
