@@ -53,4 +53,11 @@ fieldset > legend {
     font-size: 1.3em;
     padding-bottom: 1em;
 }
+fieldset .column .flex{
+  display:flex;
+}
+
+fieldset .column .flex > * {
+  margin-right:1em;
+}
 </style>
