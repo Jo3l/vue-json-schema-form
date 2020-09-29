@@ -7,7 +7,7 @@
       </div>
       <div class="column is-narrow">
         <div class="field column">
-            <label class="label"> </label>
+            <label class="label">&nbsp;</label>
             <button type="button" class="button is-danger" v-if="items.length > 0" @click="items.splice(index, 1)" :key="`remove-${index}`">Quitar</button>
         </div>
       </div>
