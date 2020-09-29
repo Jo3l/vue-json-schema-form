@@ -2968,26 +2968,14 @@ var TextElement_component = Object(componentNormalizer["a" /* default */])(
 
 TextElement_component.options.__file = "TextElement.vue"
 /* harmony default export */ var TextElement = (TextElement_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"50c18fd5-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/elements/TextareaElement.vue?vue&type=template&id=dc569938&
-var TextareaElementvue_type_template_id_dc569938_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('b-field',{attrs:{"label":_vm.schema.title,"message":_vm.schema.description}},[_c('b-input',{attrs:{"type":"textarea","minlength":_vm.schema.minLength,"maxlength":_vm.schema.maxLength,"value":_vm.value,"type":_vm.error?'is-danger':''},on:{"input":function($event){_vm.$emit('input', $event)}}})],1)}
-var TextareaElementvue_type_template_id_dc569938_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"50c18fd5-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/elements/TextareaElement.vue?vue&type=template&id=bd0e1c58&
+var TextareaElementvue_type_template_id_bd0e1c58_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('b-field',{attrs:{"label":_vm.schema.title,"message":_vm.schema.description,"type":_vm.error?'is-danger':''}},[_c('b-input',{attrs:{"type":"textarea","minlength":_vm.schema.minLength,"maxlength":_vm.schema.maxLength,"value":_vm.value},on:{"input":function($event){_vm.$emit('input', $event)}}})],1)}
+var TextareaElementvue_type_template_id_bd0e1c58_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/elements/TextareaElement.vue?vue&type=template&id=dc569938&
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.iterator.js
-var es6_array_iterator = __webpack_require__("cadf");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
-var es6_promise = __webpack_require__("551c");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.promise.finally.js
-var es7_promise_finally = __webpack_require__("097d");
+// CONCATENATED MODULE: ./src/components/elements/TextareaElement.vue?vue&type=template&id=bd0e1c58&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/elements/TextareaElement.vue?vue&type=script&lang=js&
-
-
-
 //
 //
 //
@@ -3011,8 +2999,8 @@ var es7_promise_finally = __webpack_require__("097d");
 
 var TextareaElement_component = Object(componentNormalizer["a" /* default */])(
   elements_TextareaElementvue_type_script_lang_js_,
-  TextareaElementvue_type_template_id_dc569938_render,
-  TextareaElementvue_type_template_id_dc569938_staticRenderFns,
+  TextareaElementvue_type_template_id_bd0e1c58_render,
+  TextareaElementvue_type_template_id_bd0e1c58_staticRenderFns,
   false,
   null,
   null,
@@ -3070,6 +3058,15 @@ var SelectElementvue_type_template_id_b3caa76e_staticRenderFns = []
 
 
 // CONCATENATED MODULE: ./src/components/elements/SelectElement.vue?vue&type=template&id=b3caa76e&
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.iterator.js
+var es6_array_iterator = __webpack_require__("cadf");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
+var es6_promise = __webpack_require__("551c");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.promise.finally.js
+var es7_promise_finally = __webpack_require__("097d");
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/elements/SelectElement.vue?vue&type=script&lang=js&
 
