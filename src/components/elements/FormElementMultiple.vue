@@ -6,7 +6,10 @@
         <form-element :schema="schema.items" :value="item" :error="error" @input="updateValue($event, index)" :class="schema.class?schema.class:''"></form-element>
       </div>
       <div class="column is-narrow">
-        <button type="button" class="button is-danger" v-if="items.length > 0" @click="items.splice(index, 1)" :key="`remove-${index}`">Quitar</button>
+        <div class="field column">
+            <label class="label"> </label>
+            <button type="button" class="button is-danger" v-if="items.length > 0" @click="items.splice(index, 1)" :key="`remove-${index}`">Quitar</button>
+        </div>
       </div>
     </div>
     <b-field><button type="button" class="button" @click="addItem()">Añadir</button></b-field>
