@@ -91,7 +91,9 @@ export default {
     },
     updateValue (value, child) {
       this.items[child] = value;
-      
+
+      console.log(this.items[child]);
+
       if(!this.validate()){
         this.buildErrors();
       } else {
