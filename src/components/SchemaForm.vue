@@ -8,7 +8,7 @@
     </template>
     <slot name="actions">
       <div class="control">
-        <button type="submit" class="button is-primary"><span>Submit</span></button>
+        <button type="submit" class="button is-primary"><span>Enviar</span></button>
       </div>
     </slot>
   </form>
@@ -57,9 +57,11 @@ export default {
       if (this.validate()) {
         this.$emit('input', pruneEmptyMembers(this.items))
         this.$emit('submit')
+        return true;
       }
       else {
         this.buildErrors()
+        return false;
       }
     },
     validate() {
