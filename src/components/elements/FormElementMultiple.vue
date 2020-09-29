@@ -1,6 +1,6 @@
 <template>
   <div :class="schema.class?schema.class:''">
-    <legend v-if="schema.title" class="is-size-4 has-text-weight-bold">{{ schema.title }}</legend>
+    <legend v-if="schema.title" class="is-size-4 has-text-weight-bold column is-full">{{ schema.title }}</legend>
     <div v-for="(item, index) in items" class="columns" :key="index">
       <div class="column">
         <form-element :schema="schema.items" :value="item" :error="error" @input="updateValue($event, index)" :class="schema.class?schema.class:''"></form-element>
