@@ -1,9 +1,9 @@
 <template>
-  <fieldset :class="'fieldSet '+schema.class?schema.class:'field'">
+  <div :class="'fieldSet '+schema.class?schema.class:'field'">
     <legend v-if="schema.title" class="is-size-4 has-text-weight-bold">{{ schema.title }}</legend>
     <div class="content" v-if="schema.description">{{ schema.description }}</div>
     <form-element v-for="(child, key) in schema.properties" :schema="child" :error="error" :value="internalValue[key]" :key="key" @input="updateValue($event, key)"></form-element>
-  </fieldset>
+  </div>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <fieldset :class="schema.class?schema.class:''">
+  <div :class="schema.class?schema.class:''">
     <legend v-if="schema.title" class="is-size-4 has-text-weight-bold">{{ schema.title }}</legend>
     <div v-for="(item, index) in items" class="columns" :key="index">
       <div class="column">
@@ -10,7 +10,7 @@
       </div>
     </div>
     <b-field><button type="button" class="button" @click="addItem()">Añadir</button></b-field>
-  </fieldset>
+  </div>
 </template>
 
 <script>
