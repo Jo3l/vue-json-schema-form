@@ -45,9 +45,10 @@ export default {
 
 <style scoped>
 
-.fieldSet {
+.fieldset {
   padding-left: 2em;
   border-left: 1px solid #0C2E69;
+  margin: 1.5em 0;
 }
 
 </style>
