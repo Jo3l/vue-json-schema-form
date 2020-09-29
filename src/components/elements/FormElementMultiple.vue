@@ -44,20 +44,10 @@ export default {
 </script>
 
 <style scoped>
-fieldSet {
+
+.fieldSet {
   padding-left: 2em;
   border-left: 1px solid #0C2E69;
 }
-fieldset > legend {
-    font-weight: 600;
-    font-size: 1.3em;
-    padding-bottom: 1em;
-}
-fieldset .column .flex{
-  display:flex;
-}
 
-fieldset .column .flex > * {
-  margin-right:1em;
-}
 </style>
