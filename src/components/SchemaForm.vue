@@ -68,7 +68,6 @@ export default {
     },
     buildErrors() {
       let errors = {};
-      console.log(ajv.errors)
       ajv.errors.forEach((error) => {
         if (error.keyword === 'required') {
           const path = error.dataPath.length === 0 ? `/properties/${error.params.missingProperty}` : error.schemaPath.substring(1, error.schemaPath.length - 8) + `properties/${error.params.missingProperty}`

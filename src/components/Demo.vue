@@ -63,62 +63,54 @@ export default {
   data () {
     return {
       schema: {
-        "$id": "https://example.com/person.schema.json",
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "title": "Person",
-        "type": "object",
-        "properties": {
-          "firstName": {
-            "type": "string",
-            "title": "First Name",
-            "description": "The person's first name.",
-            "example": "John"
+        $id: 'https://example.com/schemaPerson.json',
+        $schema: 'http://json-schema.org/draft-07/schema#',
+        title: 'Review',
+        type: 'object',
+        properties: {
+          firstName: {
+            type: 'string',
+            title: 'Nombre',
+            class: 'column',
+            description: 'Nombre del candidato/a.',
+            example: 'Nombre'
           },
-          "lastName": {
-            "type": "string",
-            "title": "Last Name",
-            "description": "The person's last name.",
-            "example": "Doe"
+          lastName: {
+            type: 'string',
+            title: 'Apellidos',
+            class: 'column',
+            description: 'Apellidos del candidato/a.',
+            example: 'Apellidos'
           },
-          "nickNames": {
-            "type": "array",
-            "title": "Nicknames",
-            "items": {
-              "type": "string",
-              "example": "j-dough"
-            }
+          age: {
+            title: 'Fecha de nacimiento',
+            age: '',
+            description: '',
+            class: 'column is-full',
+            type: 'string',
+            format: 'date'
           },
-          "address": {
-            "type": "object",
-            "title": "Address",
-            "properties": {
-              "lineOne": {
-                "type": "string",
-                "title": "Address line 1",
-                "example": "Address line 1"
-              },
-              "lineTwo": {
-                "type": "string",
-                "title": "Address line 2",
-                "example": "Address line 2"
-              },
-              "postalCode": {
-                "type": "string",
-                "title": "Postal code",
-                "example": "Postal code"
-              }
+          address: {
+            type: 'object',
+            title: 'Datos de domicilio',
+            class: 'flex',
+            class: 'columns is-multiline',
+            properties: {
+              street_address: { title: 'Nombre de la vía', type: 'string', class: 'column is-three-quarters' },
+              number: { title: 'Número', type: 'string', class: 'column is-one-quarter' },
+              floor: { title: 'Piso', type: 'string', class: 'column is-one-quarter' },
+              door: { title: 'Puerta', type: 'string', class: 'column is-one-quarter' },
+              stair: { title: 'Escalera', type: 'string', class: 'column is-one-quarter' },
+              block: { title: 'Bloque', type: 'string', class: 'column is-one-quarter' },
+              postal_code: { title: 'Código Postal', type: 'number', class: 'column is-one-quarter' },
+              city: { title: 'Localidad', type: 'string', class: 'column is-half' },
+              province: { title: 'Provincia', type: 'string', class: 'column is-one-quarter' }
             },
-            "required":["postalCode"]
-          },
-          "age": {
-            "title": "Age",
-            "description": "Age in years which must be equal to or greater than zero.",
-            "type": "integer",
-            "minimum": 0
+            required: ['street_address', 'number', 'postal_code', 'city', 'province']
           }
         },
-        "required": [
-          "firstName", "lastName", "address/postalCode"
+        required: [
+          'firstName', 'lastName', 'address'
         ]
       },
       schemaIsValid: true,
@@ -127,7 +119,7 @@ export default {
   },
   methods: {
     handleSubmit() {
-      alert(JSON.stringify(this.obj, null, 2))
+      
     }
   }
 }
