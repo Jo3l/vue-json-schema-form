@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="submit">
     <template v-for="(property, key) in schema.properties">
-      <slot :name="key" :item="{key: key, schema: property, value: items[key], update: updateValue}">
+      <slot :name="key" :item="{key: key, schema: property, value: items[key], update: updateValue, getvalue: getValue}">
         <component :is="element" :key="key" :schema="property" :value="items[key]" :error="ajvErrors[key]?ajvErrors[key].message:''" @input="updateValue($event, key)">
         </component>
       </slot>
@@ -88,6 +88,9 @@ export default {
         }
       })
       this.ajvErrors = errors;
+    },
+    getValue(child) {
+      return this.items[child];
     },
     updateValue (value, child) {
       this.items[child] = value;
