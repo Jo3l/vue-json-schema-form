@@ -71,14 +71,14 @@ export default {
           firstName: {
             type: 'string',
             title: 'Nombre',
-            class: 'column',
+            class: '',
             description: 'Nombre del candidato/a.',
             example: 'Nombre'
           },
           lastName: {
             type: 'string',
             title: 'Apellidos',
-            class: 'column',
+            class: '',
             description: 'Apellidos del candidato/a.',
             example: 'Apellidos'
           },
@@ -86,17 +86,16 @@ export default {
             title: 'Fecha de nacimiento',
             age: '',
             description: '',
-            class: 'column is-full',
+            class: '',
             type: 'string',
             format: 'date'
           },
           address: {
             type: 'object',
             title: 'Datos de domicilio',
-            class: 'flex',
             class: 'columns is-multiline',
             properties: {
-              street_address: { title: 'Nombre de la vía', type: 'string', class: 'column is-three-quarters' },
+              street_address: { title: 'Nombre de la vía', type: 'string', class: 'column is-three-quarters', required: ['enabled'] },
               number: { title: 'Número', type: 'string', class: 'column is-one-quarter' },
               floor: { title: 'Piso', type: 'string', class: 'column is-one-quarter' },
               door: { title: 'Puerta', type: 'string', class: 'column is-one-quarter' },
@@ -110,7 +109,7 @@ export default {
           }
         },
         required: [
-          'firstName', 'lastName', 'address'
+          'firstName', 'lastName', 'age', 'address'
         ]
       },
       schemaIsValid: true,

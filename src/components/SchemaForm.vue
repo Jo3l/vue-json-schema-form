@@ -74,6 +74,7 @@ export default {
         if (error.keyword === 'required') {
           const path = error.dataPath.length === 0 ? `/properties/${error.params.missingProperty}` : error.schemaPath.substring(1, error.schemaPath.length - 8) + `properties/${error.params.missingProperty}`
           const property = JSONPointer.get(this.schema, path)
+          console.log(error,errors)
           errors[error.params.missingProperty] = { message: 'El campo ' + property.title + ' es necesario'}
         } else if (error.keyword === 'format') {
           const path = error.schemaPath.substring(1, error.schemaPath.length - 7)
