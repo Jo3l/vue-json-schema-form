@@ -1,5 +1,9 @@
 <template>
-  <b-field :label="schema.title" :message="schema.description" :class="schema.class?schema.class:''">
+  <b-field 
+  :label="schema.title" 
+  :message="error.message?error.message:schema.description" 
+  :type="error.message?'is-danger':''" 
+  :class="schema.class?schema.class:''">
     <b-datepicker 
     :value="value" 
     @input="$emit('input', $event)" 

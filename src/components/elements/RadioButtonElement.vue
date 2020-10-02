@@ -1,7 +1,12 @@
 <template>
   <div class="field">
     <div v-for="(item, index) in schema.anyOf" class="field radio-field" :key="index">
-      <b-radio :value="value" @input="$emit('input', $event)" :type="error?'is-danger':''" :native-value="item.enum[0]">
+      <b-radio 
+      :value="value" 
+      @input="$emit('input', $event)" 
+      :message="error.message?error.message:schema.description" 
+      :type="error.message?'is-danger':''" 
+      :native-value="item.enum[0]">
         <span class="radio-title">{{ item.title }}</span>
       </b-radio>
     </div>

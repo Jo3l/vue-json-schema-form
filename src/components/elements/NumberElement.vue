@@ -1,5 +1,9 @@
 <template>
-  <b-field :label="schema.title" :message="error?error:schema.description" :type="error?'is-danger':''" :class="schema.class?schema.class:''">
+  <b-field 
+  :label="schema.title" 
+  :message="error.message?error.message:schema.description" 
+  :type="error.message?'is-danger':''" 
+  :class="schema.class?schema.class:''">
     <b-input type="number" :min="schema.minimum" :max="schema.maximum" :step="schema.type === 'number' ? 'any': '1'" :value="value" @input="$emit('input', Number($event))">
     </b-input>
   </b-field>

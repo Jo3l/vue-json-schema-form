@@ -1,5 +1,8 @@
 <template>
-  <b-field :label="schema.title" :type="error?'is-danger':''">
+  <b-field 
+  :label="schema.title" 
+  :message="error.message?error.message:schema.description" 
+  :type="error.message?'is-danger':''">
     <b-taginput
       :value="value"
       icon="account-multiple"

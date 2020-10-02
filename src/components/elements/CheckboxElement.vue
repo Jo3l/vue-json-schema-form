@@ -1,6 +1,10 @@
 <template>
   <div :class="schema.class?schema.class:'field checkbox-field'">
-    <b-checkbox :value="value" @input="$emit('input', $event)" :type="error?'is-danger':''">
+    <b-checkbox 
+    :value="value" 
+    @input="$emit('input', $event)" 
+    :message="error.message?error.message:schema.description" 
+    :type="error.message?'is-danger':''">
       <span class="checkbox-title">{{ schema.title }}</span>
       <p class="help checkbox-desc" v-if="schema.description">{{ schema.description }}</p>
     </b-checkbox>

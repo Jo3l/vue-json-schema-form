@@ -65,13 +65,14 @@ export default {
       schema: {
         $id: 'https://example.com/schemaPerson.json',
         $schema: 'http://json-schema.org/draft-07/schema#',
-        title: 'Review',
+        title: 'Schema',
         type: 'object',
         properties: {
           firstName: {
             type: 'string',
             title: 'Nombre',
             class: '',
+            pattern: '^[679]{1}[0-9]{8}$',
             description: 'Nombre del candidato/a.',
             example: 'Nombre'
           },
@@ -90,12 +91,23 @@ export default {
             type: 'string',
             format: 'date'
           },
+          contact: {
+            type: 'object',
+            title: 'Datos de contacto',
+            class: 'columns is-multiline',
+            properties: {
+              phone: { title: 'Teléfono', type: 'string', class: 'column is-half', pattern: "^[679]{1}[0-9]{8}$", minLength: 9, maxLength: 9},
+              emeil: { title: 'Email', type: 'string', class: 'column is-half', format:"email"},
+            },
+            required: ['phone', 'emeil']
+
+          },
           address: {
             type: 'object',
             title: 'Datos de domicilio',
             class: 'columns is-multiline',
             properties: {
-              street_address: { title: 'Nombre de la vía', type: 'string', class: 'column is-three-quarters', required: ['enabled'] },
+              street_address: { title: 'Nombre de la vía', type: 'string', class: 'column is-three-quarters'},
               number: { title: 'Número', type: 'string', class: 'column is-one-quarter' },
               floor: { title: 'Piso', type: 'string', class: 'column is-one-quarter' },
               door: { title: 'Puerta', type: 'string', class: 'column is-one-quarter' },
@@ -106,10 +118,18 @@ export default {
               province: { title: 'Provincia', type: 'string', class: 'column is-one-quarter' }
             },
             required: ['street_address', 'number', 'postal_code', 'city', 'province']
-          }
+          },
+          nickNames: {
+            type: "array",
+            title: "Nicknames",
+            items: {
+              type: "string",
+              example: "j-dough"
+            }
+          },
         },
         required: [
-          'firstName', 'lastName', 'age', 'address'
+          'firstName', 'lastName', 'age'
         ]
       },
       schemaIsValid: true,

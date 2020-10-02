@@ -2,7 +2,15 @@
   <div :class="'fieldSet '+schema.class?schema.class:'field'">
     <legend v-if="schema.title" class="is-size-4 has-text-weight-bold column is-full">{{ schema.title }}</legend>
     <div class="content" v-if="schema.description">{{ schema.description }}</div>
-    <form-element v-for="(child, key) in schema.properties" :schema="child" :error="error" :value="internalValue[key]" :key="key" @input="updateValue($event, key)"></form-element>
+    <form-element 
+      v-for="(child, key) in schema.properties" 
+      :schema="child" 
+      :error="error[key]?error[key]:{message:''}" 
+      :value="internalValue[key]" 
+      :key="key" 
+      @input="updateValue($event, key)"
+    >
+    </form-element>
   </div>
 </template>
 
@@ -34,6 +42,9 @@ export default {
       this.internalValue[child] = value
       this.$emit('input', this.internalValue)
     }
+  },
+  mounted: function(){
+    this.updateValue()
   }
 }
 </script>
