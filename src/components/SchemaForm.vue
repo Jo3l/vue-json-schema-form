@@ -23,7 +23,7 @@ import JSONPointer from 'json-pointer'
 import FormElement from '@/components/elements/FormElement'
 import { scaffoldFromSchema, pruneEmptyMembers } from '@/utility/json-schema-helpers'
 
-let ajv = new Ajv({allErrors: true, verbose:true, jsonPointers: false, format: 'full'})
+let ajv = new Ajv({allErrors: true, verbose:true, uniqueItems:false, jsonPointers: false, format: 'full'})
 export default {
   name: 'SchemaForm',
   components: {

@@ -106,6 +106,7 @@ export default {
           },
           address: {
             type: 'object',
+            $id: 'https://example.com/schemaAddress.json',
             title: 'Datos de domicilio',
             class: 'columns is-multiline',
             widget: 'address',

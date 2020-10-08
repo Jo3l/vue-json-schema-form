@@ -8757,12 +8757,12 @@ if (typeof window !== 'undefined') {
 var external_amd_buefy_commonjs_buefy_commonjs2_buefy_root_Buefy_ = __webpack_require__("7a20");
 var external_amd_buefy_commonjs_buefy_commonjs2_buefy_root_Buefy_default = /*#__PURE__*/__webpack_require__.n(external_amd_buefy_commonjs_buefy_commonjs2_buefy_root_Buefy_);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"50c18fd5-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/SchemaForm.vue?vue&type=template&id=618f5b91&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"50c18fd5-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/SchemaForm.vue?vue&type=template&id=23599301&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('form',{on:{"submit":function($event){$event.preventDefault();}}},[_vm._l((_vm.schema.properties),function(property,key){return [_vm._t(key,[_c(_vm.element,{key:key,tag:"component",attrs:{"schema":property,"value":_vm.items[key],"error":_vm.ajvErrors[key]?_vm.ajvErrors[key]:_vm.ajvErrors},on:{"input":function($event){_vm.updateValue($event, key)}}})],{item:{key: key, schema: property, value: _vm.items[key], update: _vm.updateValue, getvalue: _vm.getValue}})]}),_vm._t("actions",[_vm._m(0)]),_c('pre',[_vm._v("    "+_vm._s(_vm.ajvErrors)+"\n    ")])],2)}
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"control"},[_c('button',{staticClass:"button is-primary",attrs:{"type":"submit"}},[_c('span',[_vm._v("Enviar")])])])}]
 
 
-// CONCATENATED MODULE: ./src/components/SchemaForm.vue?vue&type=template&id=618f5b91&
+// CONCATENATED MODULE: ./src/components/SchemaForm.vue?vue&type=template&id=23599301&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.iterator.js
 var es6_array_iterator = __webpack_require__("cadf");
@@ -8825,6 +8825,7 @@ var json_schema_helpers = __webpack_require__("11da");
 var ajv = new external_amd_ajv_commonjs_ajv_commonjs2_ajv_root_Ajv_default.a({
   allErrors: true,
   verbose: true,
+  uniqueItems: false,
   jsonPointers: false,
   format: 'full'
 });
