@@ -12,7 +12,7 @@
     </b-field>
 
     <b-field 
-      v-if="showAutocomplete"
+      v-show="showAutocomplete"
       label="Dirección completa" 
       :message="error[snk]&&error[snk].message?error[snk].message:schema.properties[snk].description" 
       :type="error[snk]&&error[snk].message?'is-danger':''" 
@@ -26,7 +26,7 @@
     </b-field>
 
     <form-element
-      v-if="!showAutocomplete"
+      v-show="!showAutocomplete"
       v-for="(child, key) in schema.properties" 
       :schema="child" 
       :error="error[key]?error[key]:{message:''}" 
@@ -93,13 +93,9 @@ export default {
   methods: {
     disableAutocomplete(){
       this.showAutocomplete = !this.showAutocomplete;
-      this.schema.properties.province.disabled=false;
-      this.schema.properties.city.disabled=false;
-      this.schema.properties.postal_code.disabled=false;
-      if(this.showAutocomplete) {
-        this.initMap()
-        this.initAutocomplete()
-      }
+      //this.schema.properties.province.disabled=false;
+      //this.schema.properties.city.disabled=false;
+      //this.schema.properties.postal_code.disabled=false;
     },
     updateValue (value, child) {
       this.internalValue[child] = value
