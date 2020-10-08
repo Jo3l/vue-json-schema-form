@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent>
+  <form @submit.prevent="submit">
     <template v-for="(property, key) in schema.properties">
       <slot :name="key" :item="{key: key, schema: property, value: items[key], update: updateValue, getvalue: getValue}">
         <component :is="element" :key="key" :schema="property" :value="items[key]" :error="ajvErrors[key]?ajvErrors[key]:ajvErrors" @input="updateValue($event, key)">

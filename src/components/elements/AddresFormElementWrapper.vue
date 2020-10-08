@@ -12,7 +12,7 @@
     </b-field>
 
     <b-field 
-      v-show="showAutocomplete"
+      v-if="showAutocomplete"
       label="Dirección completa" 
       :message="error[snk]&&error[snk].message?error[snk].message:schema.properties[snk].description" 
       :type="error[snk]&&error[snk].message?'is-danger':''" 
@@ -25,16 +25,15 @@
         </b-input>
     </b-field>
 
-    <form-element 
-      v-show="!showAutocomplete"
-      v-for="(child, key) in schema.properties"
-      :ref="key"
+    <form-element
+      v-if="!showAutocomplete"
+      v-for="(child, key) in schema.properties" 
       :schema="child" 
       :error="error[key]?error[key]:{message:''}" 
       :value="internalValue[key]" 
       :key="key" 
-      @input="updateValue($event, key)">
-    </form-element>
+      @input="updateValue($event, key)"
+    ></form-element>
 
     <div class="column is-full">
         <div ref="map" style="height: 150px"/>
@@ -97,7 +96,10 @@ export default {
       this.schema.properties.province.disabled=false;
       this.schema.properties.city.disabled=false;
       this.schema.properties.postal_code.disabled=false;
-
+      if(this.showAutocomplete) {
+        this.initMap()
+        this.initAutocomplete()
+      }
     },
     updateValue (value, child) {
       this.internalValue[child] = value
@@ -105,7 +107,6 @@ export default {
       if(this.internalValue.street_address=='') {
         this.showAutocomplete = true;
         this.search = '';
-        console.log
         document.querySelector('#autocomplete').focus();
       }
     },
@@ -147,7 +148,6 @@ export default {
 
       for (const component of place.address_components) {
         if (component.types.indexOf('street_number') !== -1) {
-          console.log(component.short_name)
           this.internalValue['number'] = component.short_name;
           this.$emit('input', this.internalValue['number']);
         }
@@ -158,17 +158,17 @@ export default {
         if (component.types.indexOf('locality') !== -1) {
           this.internalValue['city'] = component.long_name
           this.$emit('input', this.internalValue['city']);
-          this.schema.properties.city.disabled=true;
+          //this.schema.properties.city.disabled=true;
         }
         if (component.types.indexOf('administrative_area_level_2') !== -1) {
           this.internalValue['province'] = component.long_name
           this.$emit('input', this.internalValue['province']);
-          this.schema.properties.province.disabled=true;
+          //this.schema.properties.province.disabled=true;
         }
         if (component.types.indexOf('postal_code') !== -1) {
           this.internalValue['postal_code'] = component.short_name
           this.$emit('input', this.internalValue['number']);
-          this.schema.properties.postal_code.disabled=true;
+          //this.schema.properties.postal_code.disabled=true;
         }
       }
       this.showAutocomplete = false;

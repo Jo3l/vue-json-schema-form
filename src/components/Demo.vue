@@ -156,7 +156,7 @@ export default {
   },
   methods: {
     handleSubmit() {
-      console.log(this.obj)
+
     }
   }
 }
