@@ -4,7 +4,7 @@
   :message="error.message?error.message:schema.description" 
   :type="error.message?'is-danger':''" 
   :class="schema.class?schema.class:''">
-    <b-input :value="value" @blur="blur($event)" @input="$emit('input', $event)" :placeholder="schema.example"></b-input>
+    <b-input :disabled="schema.disabled" :value="value" @blur="blur($event)" @input="$emit('input', $event)" :placeholder="schema.example"></b-input>
   </b-field>
 </template>
 

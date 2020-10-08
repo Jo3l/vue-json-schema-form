@@ -24,7 +24,10 @@
   },
   "dependencies": {
     "ajv": "^6.5.4",
-    "json-pointer": "^0.6.0"
+    "intl-tel-input": "^17.0.5",
+    "json-pointer": "^0.6.0",
+    "lodash.clone": "^4.5.0",
+    "v-money": "^0.8.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.5",

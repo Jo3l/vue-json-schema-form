@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="submit">
+  <form @submit.prevent>
     <template v-for="(property, key) in schema.properties">
       <slot :name="key" :item="{key: key, schema: property, value: items[key], update: updateValue, getvalue: getValue}">
         <component :is="element" :key="key" :schema="property" :value="items[key]" :error="ajvErrors[key]?ajvErrors[key]:ajvErrors" @input="updateValue($event, key)">
@@ -24,7 +24,6 @@ import FormElement from '@/components/elements/FormElement'
 import { scaffoldFromSchema, pruneEmptyMembers } from '@/utility/json-schema-helpers'
 
 let ajv = new Ajv({allErrors: true, verbose:true, jsonPointers: false, format: 'full'})
-// fer un array per a que quan fas blur del item 
 export default {
   name: 'SchemaForm',
   components: {
@@ -84,22 +83,22 @@ export default {
         } else if (error.keyword === 'format') {
             const path = error.schemaPath.substring(1, error.schemaPath.length - 7)
             const property = JSONPointer.get(this.schema, path)
-            if(!key || key==schemaKey) errors[schemaKey] = { message: property.title +' no tiene un formato correcto Ej: '+ property.example }
+            if(!key) errors[schemaKey] = { message: property.title +' no tiene un formato correcto Ej: '+ property.example }
             return true;
         } else if (error.keyword === 'pattern') {
             const path = error.schemaPath.substring(1, error.schemaPath.length - 8)
             const property = JSONPointer.get(this.schema, path)
-            if(key==schemaKey) errors[schemaKey] = { message: property.title +' no tiene un formato correcto Ej: '+ property.example }
+            if(!key) errors[schemaKey] = { message: property.title +' no tiene un formato correcto Ej: '+ property.example }
             return true
         } else if (error.keyword === 'minLength') {
             const path = error.schemaPath.substring(1, error.schemaPath.length - 10)
             const property = JSONPointer.get(this.schema, path)
-            if(key==schemaKey) errors[schemaKey] = { message: property.title +' no puede ser inferior a ' + error.params.limit + ' caracteres.'}
+            if(!key) errors[schemaKey] = { message: property.title +' no puede ser inferior a ' + error.params.limit + ' caracteres.'}
             return true;
         } else if (error.keyword === 'maxLength') {
             const path = error.schemaPath.substring(1, error.schemaPath.length - 10)
             const property = JSONPointer.get(this.schema, path)
-            if(key==schemaKey) errors[schemaKey] = { message: property.title +' no puede ser superior a ' + error.params.limit + ' caracteres.'}
+            if(!key) errors[schemaKey] = { message: property.title +' no puede ser superior a ' + error.params.limit + ' caracteres.'}
             return true;
         } else {
             errors[schemaKey] = {};
@@ -107,7 +106,6 @@ export default {
         }
       })
       if(errors) {
-        console.log(errors, this.ajvErrors)
         //this.ajvErrors = {...this.ajvErrors, ...errors};
         this.ajvErrors = errors;
       }
@@ -130,6 +128,9 @@ export default {
         this.ajvErrors={};
       }
     }
+  },
+  mounted() {
+
   }
 }
 </script>

@@ -21,6 +21,9 @@
               :message="schemaIsValid ? 'Valid Schema' : 'Invalid Schema'">
               <b-input v-autosize type="textarea" v-model="plainSchema"></b-input>
             </b-field>
+            <pre>
+              {{obj}}
+            </pre>
           </div>
           <div class="column">
             <schema-form :schema="schema" v-model="obj" @submit="handleSubmit()" />
@@ -72,7 +75,6 @@ export default {
             type: 'string',
             title: 'Nombre',
             class: '',
-            pattern: '^[679]{1}[0-9]{8}$',
             description: 'Nombre del candidato/a.',
             example: 'Nombre'
           },
@@ -96,7 +98,7 @@ export default {
             title: 'Datos de contacto',
             class: 'columns is-multiline',
             properties: {
-              phone: { title: 'Teléfono', type: 'string', class: 'column is-half', pattern: "^[679]{1}[0-9]{8}$", minLength: 9, maxLength: 9},
+              phone: { title: 'Teléfono', type: 'string', widget: 'phone', class: 'column is-half', minLength: 9},
               emeil: { title: 'Email', type: 'string', class: 'column is-half', format:"email"},
             },
             required: ['phone', 'emeil']
@@ -106,9 +108,10 @@ export default {
             type: 'object',
             title: 'Datos de domicilio',
             class: 'columns is-multiline',
+            widget: 'address',
             properties: {
-              street_address: { title: 'Nombre de la vía', type: 'string', class: 'column is-three-quarters'},
-              number: { title: 'Número', type: 'string', class: 'column is-one-quarter' },
+              street_address: { title: 'Nombre de la vía', type: 'string', class: 'column is-9'},
+              number: { title: 'Número', type: 'string', class: 'column is-2' },
               floor: { title: 'Piso', type: 'string', class: 'column is-one-quarter' },
               door: { title: 'Puerta', type: 'string', class: 'column is-one-quarter' },
               stair: { title: 'Escalera', type: 'string', class: 'column is-one-quarter' },
@@ -118,6 +121,12 @@ export default {
               province: { title: 'Provincia', type: 'string', class: 'column is-one-quarter' }
             },
             required: ['street_address', 'number', 'postal_code', 'city', 'province']
+          },
+          money: {
+            type: 'number',
+            title: 'Coste',
+            class: '',
+            widget: 'money'
           },
           nickNames: {
             type: "array",
@@ -129,16 +138,24 @@ export default {
           },
         },
         required: [
-          'firstName', 'lastName', 'age'
+          'firstName', 'lastName', 'age', 'money'
         ]
       },
       schemaIsValid: true,
-      obj: {}
+      obj: {
+        "contact": {
+          "emeil": "dfg@dsf.c0m",
+          "phone": "+34123456789"
+        },
+        "firstName": "dfg",
+        "lastName": "dfg",
+        "age": "2020-10-15"
+      }
     }
   },
   methods: {
     handleSubmit() {
-      
+      console.log(this.obj)
     }
   }
 }

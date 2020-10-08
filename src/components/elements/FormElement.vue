@@ -13,7 +13,9 @@ import CheckboxGroupElement from '@/components/elements/CheckboxGroupElement'
 import RadioButtonElement from '@/components/elements/RadioButtonElement'
 import FormElementMultiple from '@/components/elements/FormElementMultiple'
 import DatePickerElement from '@/components/elements/DatePickerElement'
-
+import TextPhoneElement from '@/components/elements/PhoneInput'
+import MoneyElement from '@/components/elements/MoneyInput'
+import AddressFormWrapper from '@/components/elements/AddresFormElementWrapper'
 export default {
   name: 'FormElement',
   props: [
@@ -29,6 +31,12 @@ export default {
         // currently only textarea is supported
         if (this.schema.widget === 'textarea') {
           component = TextareaElement
+        } else if(this.schema.widget === 'phone') {
+          component = TextPhoneElement
+        } else if(this.schema.widget === 'money') {
+          component = MoneyElement
+        } else if(this.schema.widget === 'address') {
+          component = AddressFormWrapper
         }
       } else if (this.schema.anyOf !== undefined) {
         component = RadioButtonElement

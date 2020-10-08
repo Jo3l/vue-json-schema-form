@@ -4,8 +4,8 @@
   :message="error.message?error.message:schema.description" 
   :type="error.message?'is-danger':''" 
   :class="schema.class?schema.class:''">
-    <b-datepicker 
-    :value="value" 
+    <b-datepicker
+    v-model="selected"
     @input="$emit('input', $event)" 
     append-to-body
     placeholder="Selecciona..."
@@ -24,6 +24,11 @@ export default {
     'schema',
     'value',
     'error'
-  ]
+  ],
+  data () {
+    return {
+      selected: this.value ? new Date(this.value) : null
+    }
+  },
 }
 </script>
