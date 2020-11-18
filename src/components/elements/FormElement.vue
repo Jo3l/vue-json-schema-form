@@ -16,6 +16,7 @@ import DatePickerElement from '@/components/elements/DatePickerElement'
 import TextPhoneElement from '@/components/elements/PhoneInput'
 import MoneyElement from '@/components/elements/MoneyInput'
 import AddressFormWrapper from '@/components/elements/AddresFormElementWrapper'
+import ImageElement from '@/components/elements/ImageInput'
 export default {
   name: 'FormElement',
   props: [
@@ -37,6 +38,8 @@ export default {
           component = MoneyElement
         } else if(this.schema.widget === 'address') {
           component = AddressFormWrapper
+        } else if(this.schema.widget === 'image') {
+          component = ImageElement
         }
       } else if (this.schema.anyOf !== undefined) {
         component = RadioButtonElement

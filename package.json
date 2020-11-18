@@ -27,7 +27,8 @@
     "intl-tel-input": "^17.0.6",
     "json-pointer": "^0.6.1",
     "lodash.clone": "^4.5.0",
-    "v-money": "^0.8.1"
+    "v-money": "^0.8.1",
+    "vue-image-upload-resize": "^2.3.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.12.1",

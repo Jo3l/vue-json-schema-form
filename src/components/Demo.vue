@@ -93,6 +93,13 @@ export default {
             type: 'string',
             format: 'date'
           },
+          picture: {
+            title: 'Foto',
+            description: 'Fotografia de tu careto',
+            class: '',
+            widget: 'image',
+            type: 'string'
+          },
           contact: {
             type: 'object',
             title: 'Datos de contacto',
