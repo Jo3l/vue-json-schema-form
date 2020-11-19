@@ -72,26 +72,26 @@ export default {
   }
 }
 </script>
-<style scoped>
-.control {
+<style>
+.image-input .control {
   border: 1px solid #dbdbdb;
   border-radius: 4px;
   padding: 1em;
   text-align: center;
 }
-picture{
+.image-input picture{
   width:100%;
   display: block;
   padding-top: 100%;
   background-size: cover;
   background-position: center;
 }
-picture+small{
+.image-input picture+small{
   font-size: .5em;
   text-align: right;
   display: block;
 }
-/deep/ #fileInput {
+.image-input /deep/ #fileInput {
   display:none;
 }
 </style>

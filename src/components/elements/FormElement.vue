@@ -27,7 +27,6 @@ export default {
   computed: {
     type() {
       let component = TextElement
-      console.log('vue-json-schema-form', this.schema)
       if (this.schema.widget !== undefined) {
         // allow the schema to specify widget
         // currently only textarea is supported
