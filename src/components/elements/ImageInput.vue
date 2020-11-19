@@ -1,5 +1,5 @@
 <template>
-  <div class="field">
+  <div class="field image-input">
     <label class="label">{{schema.title}}</label>
     <div :class="error.message?'control has-icons-right':'control'">
     <image-uploader
