@@ -1,8 +1,9 @@
 <template>
   <div class="field image-input">
     <label class="label">{{schema.title}}</label>
-    <div :class="error.message?'control input section has-icons-right':'control input section'">
+    <div :class="error.message?'control section input has-text-centered has-icons-right':'control section input has-text-centered'">
     <image-uploader
+    class="container"
     :disabled="schema.disabled"
     :debug="1"
     :maxWidth="512"
