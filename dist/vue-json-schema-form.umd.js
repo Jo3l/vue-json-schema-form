@@ -14477,14 +14477,16 @@ var staticRenderFns = []
 
 // CONCATENATED MODULE: ./src/components/elements/FormElement.vue?vue&type=template&id=cd306f18&
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0d5ccda2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/elements/FormElementWrapper.vue?vue&type=template&id=1b6e9682&
-var FormElementWrappervue_type_template_id_1b6e9682_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class: true?_vm.schema.class:undefined},[(_vm.schema.title)?_c('legend',{staticClass:"is-size-4 has-text-weight-bold column is-full"},[_vm._v(_vm._s(_vm.schema.title))]):_vm._e(),(_vm.schema.description)?_c('div',{staticClass:"content"},[_vm._v(_vm._s(_vm.schema.description))]):_vm._e(),_vm._l((_vm.schema.properties),function(child,key){return _c('form-element',{key:key,attrs:{"schema":child,"error":_vm.error[key]?_vm.error[key]:{message:''},"value":_vm.internalValue[key]},on:{"input":function($event){return _vm.updateValue($event, key)}}})})],2)}
-var FormElementWrappervue_type_template_id_1b6e9682_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0d5ccda2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/elements/FormElementWrapper.vue?vue&type=template&id=22172314&
+var FormElementWrappervue_type_template_id_22172314_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"fieldSet"},[(_vm.schema.title)?_c('legend',{staticClass:"is-size-4 has-text-weight-bold column is-full"},[_vm._v(_vm._s(_vm.schema.title))]):_vm._e(),(_vm.schema.description)?_c('div',{staticClass:"content"},[_vm._v(_vm._s(_vm.schema.description))]):_vm._e(),_c('div',{class:_vm.schema.class},_vm._l((_vm.schema.properties),function(child,key){return _c('form-element',{key:key,attrs:{"schema":child,"error":_vm.error[key]?_vm.error[key]:{message:''},"value":_vm.internalValue[key]},on:{"input":function($event){return _vm.updateValue($event, key)}}})}),1)])}
+var FormElementWrappervue_type_template_id_22172314_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/elements/FormElementWrapper.vue?vue&type=template&id=1b6e9682&
+// CONCATENATED MODULE: ./src/components/elements/FormElementWrapper.vue?vue&type=template&id=22172314&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/elements/FormElementWrapper.vue?vue&type=script&lang=js&
+//
+//
 //
 //
 //
@@ -14546,8 +14548,8 @@ var componentNormalizer = __webpack_require__("2877");
 
 var FormElementWrapper_component = Object(componentNormalizer["a" /* default */])(
   elements_FormElementWrappervue_type_script_lang_js_,
-  FormElementWrappervue_type_template_id_1b6e9682_render,
-  FormElementWrappervue_type_template_id_1b6e9682_staticRenderFns,
+  FormElementWrappervue_type_template_id_22172314_render,
+  FormElementWrappervue_type_template_id_22172314_staticRenderFns,
   false,
   null,
   null,
