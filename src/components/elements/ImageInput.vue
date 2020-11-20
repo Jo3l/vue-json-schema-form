@@ -1,5 +1,5 @@
 <template>
-  <div class="field image-input">
+  <div :class="'fieldSet '+schema.class">
     <label class="label">{{schema.title}}</label>
     <div style="border: 1px solid #dbdbdb;border-radius: 4px;padding: 1em;" :class="error.message?'control has-text-centered has-icons-right':'control has-text-centered'">
     <image-uploader
