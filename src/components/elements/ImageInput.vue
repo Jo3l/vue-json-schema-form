@@ -1,7 +1,7 @@
 <template>
   <div class="field image-input">
     <label class="label">{{schema.title}}</label>
-    <div :class="error.message?'control section input has-text-centered has-icons-right':'control section input has-text-centered'">
+    <div style="border: 1px solid #dbdbdb;border-radius: 4px;padding: 1em;" :class="error.message?'control has-text-centered has-icons-right':'control has-text-centered'">
     <image-uploader
     class="container"
     :disabled="schema.disabled"
@@ -11,7 +11,7 @@
     :autoRotate=true
     outputFormat="string"
     :preview=false
-    :className="['fileinput', { 'fileinput--loaded' : hasImage }]"
+    className="fileinput is-hidden"
     :capture="true"
     accept="image/*"
     doNotResize="['gif', 'svg']"
