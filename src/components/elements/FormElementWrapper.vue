@@ -1,6 +1,6 @@
 <template>
-  <div class="fieldSet">
-    <legend v-if="schema.title" class="is-size-4 has-text-weight-bold column is-full">{{ schema.title }}</legend>
+  <div class="fieldSet" style="margin-bottom:1em;">
+    <legend v-if="schema.title" class="is-size-4 has-text-weight-bold is-full">{{ schema.title }}</legend>
     <div class="content" v-if="schema.description">{{ schema.description }}</div>
     <div :class="schema.class">
       <form-element 
