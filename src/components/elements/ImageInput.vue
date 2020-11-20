@@ -1,7 +1,7 @@
 <template>
   <div class="field image-input">
     <label class="label">{{schema.title}}</label>
-    <div :class="error.message?'control has-icons-right':'control'">
+    <div :class="error.message?'control input section has-icons-right':'control input section'">
     <image-uploader
     :disabled="schema.disabled"
     :debug="1"
