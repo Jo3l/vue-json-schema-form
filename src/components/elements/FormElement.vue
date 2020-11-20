@@ -40,6 +40,8 @@ export default {
           component = AddressFormWrapper
         } else if(this.schema.widget === 'image') {
           component = ImageElement
+        } else if(this.schema.widget === 'group') {
+          component = FormElementWrapper
         }
       } else if (this.schema.anyOf !== undefined) {
         component = RadioButtonElement

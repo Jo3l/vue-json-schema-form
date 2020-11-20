@@ -14470,12 +14470,12 @@ module.exports = stackClear;
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0d5ccda2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/elements/FormElement.vue?vue&type=template&id=43e92a63&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0d5ccda2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/elements/FormElement.vue?vue&type=template&id=cd306f18&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(_vm.type,{tag:"component",attrs:{"schema":_vm.schema,"value":_vm.value,"error":_vm.error},on:{"input":function($event){return _vm.$emit('input', $event)}}})}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/elements/FormElement.vue?vue&type=template&id=43e92a63&
+// CONCATENATED MODULE: ./src/components/elements/FormElement.vue?vue&type=template&id=cd306f18&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0d5ccda2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/elements/FormElementWrapper.vue?vue&type=template&id=1b6e9682&
 var FormElementWrappervue_type_template_id_1b6e9682_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class: true?_vm.schema.class:undefined},[(_vm.schema.title)?_c('legend',{staticClass:"is-size-4 has-text-weight-bold column is-full"},[_vm._v(_vm._s(_vm.schema.title))]):_vm._e(),(_vm.schema.description)?_c('div',{staticClass:"content"},[_vm._v(_vm._s(_vm.schema.description))]):_vm._e(),_vm._l((_vm.schema.properties),function(child,key){return _c('form-element',{key:key,attrs:{"schema":child,"error":_vm.error[key]?_vm.error[key]:{message:''},"value":_vm.internalValue[key]},on:{"input":function($event){return _vm.updateValue($event, key)}}})})],2)}
@@ -15656,6 +15656,8 @@ var ImageInput_component = Object(componentNormalizer["a" /* default */])(
           component = AddresFormElementWrapper;
         } else if (this.schema.widget === 'image') {
           component = ImageInput;
+        } else if (this.schema.widget === 'group') {
+          component = FormElementWrapper;
         }
       } else if (this.schema.anyOf !== undefined) {
         component = RadioButtonElement;
