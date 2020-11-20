@@ -18,7 +18,7 @@
     @input="setImage"
   >
         <label for="fileInput" slot="upload-label">
-        <picture v-if="image" :style="'background-image:url('+image+')'" style="width:100%;display: block;padding-top: 100%;background-size: cover; background-position: center;"></picture>
+        <picture :style="'background-image:url('+image?image:'https://static.aiudo.es/img/aiudo-face.png'+')'" style="width:100%;display: block;padding-top: 100%;background-size: cover; background-position: center;"></picture>
         <small style="font-size: .5em;text-align: right;display: block;">{{image?(byteLength(image) / 1000).toFixed(1) + " kb":""}}</small>
         <figure>
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
